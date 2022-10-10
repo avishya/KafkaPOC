@@ -1,5 +1,6 @@
 package com.home.kafkapoc.resource;
 
+import com.home.kafkapoc.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("kafka")
-public class UserResource {
+public class publishKafkaJson {
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
-    private static final String TOPIC = "MyThirdTopic";
-    @GetMapping("/put/{message}")
-    public String post(@PathVariable("message") final String message1){
-        kafkaTemplate.send(TOPIC,message1);
-        System.out.println(message1);
+    private KafkaTemplate<String, UserInfo> kafkaTemplate;
+    private static final String TOPIC = "MyFirstTopic";
+    @GetMapping("/send/json/{name}")
+    public String post(@PathVariable("name") final String name1){
+        kafkaTemplate.send(TOPIC, new UserInfo(name1,"Shawbury",43035L));
+        System.out.println(name1);
         return "Sent Message";
     }
 
