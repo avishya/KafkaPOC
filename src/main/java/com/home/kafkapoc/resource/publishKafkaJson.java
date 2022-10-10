@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class publishKafkaJson {
     @Autowired
     private KafkaTemplate<String, UserInfo> kafkaTemplate;
-    private static final String TOPIC = "MyFirstTopic";
+    private static final String TOPIC = "MyThirdTopic";
     @GetMapping("/send/json/{name}")
     public String post(@PathVariable("name") final String name1){
         kafkaTemplate.send(TOPIC, new UserInfo(name1,"Shawbury",43035L));

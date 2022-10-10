@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class publishKafkaString {
 //    @Autowired
 //    private KafkaTemplate<String, String> kafkaTemplate;
-//    private static final String TOPIC = "MyFirstTopic";
+//    private static final String TOPIC = "MyThirdTopic";
 //    @GetMapping("/send/string/{message}")
 //    public String post(@PathVariable("message") final String message1){
 //        kafkaTemplate.send(TOPIC,message1);
